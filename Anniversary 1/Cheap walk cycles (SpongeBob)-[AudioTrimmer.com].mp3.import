@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://sxt42v0qv7s3"
+path="res://.godot/imported/Cheap walk cycles (SpongeBob)-[AudioTrimmer.com].mp3-42d4b71af04b775559dac1c0f7c13452.mp3str"
+
+[deps]
+
+source_file="res://Cheap walk cycles (SpongeBob)-[AudioTrimmer.com].mp3"
+dest_files=["res://.godot/imported/Cheap walk cycles (SpongeBob)-[AudioTrimmer.com].mp3-42d4b71af04b775559dac1c0f7c13452.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

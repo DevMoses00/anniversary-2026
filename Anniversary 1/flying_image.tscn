@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://kl1o474gfs0g"]
+
+[ext_resource type="Script" uid="uid://jkppyvkod7mo" path="res://flying_image.gd" id="1_7bn3f"]
+
+[node name="FlyingImage" type="CharacterBody2D"]
+script = ExtResource("1_7bn3f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.04, 0.04)

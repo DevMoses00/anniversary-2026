@@ -1,0 +1,210 @@
+[gd_scene load_steps=29 format=3 uid="uid://dccmwsqk1m7v2"]
+
+[ext_resource type="Script" uid="uid://ciccomg30814f" path="res://main.gd" id="1_7mycd"]
+[ext_resource type="Texture2D" uid="uid://wvnk5a6hxr2n" path="res://Character Sprite/Ham_0.png" id="1_lquwl"]
+[ext_resource type="Texture2D" uid="uid://rdv8f8p36xlv" path="res://Character Sprite/Ham_1.png" id="2_7mycd"]
+[ext_resource type="Texture2D" uid="uid://co25kmsa0cuxw" path="res://HAM_BG/BG.png" id="2_efxa6"]
+[ext_resource type="PackedScene" uid="uid://kl1o474gfs0g" path="res://flying_image.tscn" id="2_vivmo"]
+[ext_resource type="Texture2D" uid="uid://dqfedutws78wp" path="res://Character Sprite/Ham_left.png" id="3_272bh"]
+[ext_resource type="Texture2D" uid="uid://cglaflrjrebrl" path="res://HAM_BG/Grass_2.png" id="3_dg77c"]
+[ext_resource type="Shader" uid="uid://31ixeg6br75c" path="res://jolt.gdshader" id="4_2cqfq"]
+[ext_resource type="Texture2D" uid="uid://lre4ac1gnb3v" path="res://Character Sprite/Ham_switch.png" id="4_5vw27"]
+[ext_resource type="Texture2D" uid="uid://cmm304c7sgcos" path="res://HAM_BG/Grass_1.png" id="4_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://cfmjrmp835n58" path="res://Character Sprite/HamRight.png" id="5_kek77"]
+[ext_resource type="Texture2D" uid="uid://b76jccph7e71q" path="res://HAM_BG/Grass_0.png" id="5_vivmo"]
+[ext_resource type="Texture2D" uid="uid://beuag8fxcofsj" path="res://HAM_BG/OUTFLOWER.png" id="5_w48qg"]
+[ext_resource type="Texture2D" uid="uid://bhb0e4g2klwuo" path="res://HAM_BG/INNERFLOWER.png" id="6_vivmo"]
+[ext_resource type="AudioStream" uid="uid://b423m5ghs15ec" path="res://Vince Guaraldi Trio - Linus And Lucy.mp3" id="14_w48qg"]
+[ext_resource type="Texture2D" uid="uid://bq0nxmswp5lvl" path="res://1.png" id="15_074og"]
+[ext_resource type="AudioStream" uid="uid://it356pru2ctt" path="res://SFX_Confetti_3.wav" id="15_vivmo"]
+[ext_resource type="Texture2D" uid="uid://cqgu2ea6dwlep" path="res://2.png" id="16_cegan"]
+[ext_resource type="AudioStream" uid="uid://sxt42v0qv7s3" path="res://Cheap walk cycles (SpongeBob)-[AudioTrimmer.com].mp3" id="16_yaehf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yaehf"]
+shader = ExtResource("4_2cqfq")
+shader_parameter/jolt_strength_pixels = 2.131
+shader_parameter/jumps_per_second = 3.651
+shader_parameter/jitter_scale = 0.409
+shader_parameter/seed = 123.0
+shader_parameter/soften = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_074og"]
+shader = ExtResource("4_2cqfq")
+shader_parameter/jolt_strength_pixels = 0.94
+shader_parameter/jumps_per_second = 9.558
+shader_parameter/jitter_scale = 0.31
+shader_parameter/seed = 123.0
+shader_parameter/soften = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cegan"]
+shader = ExtResource("4_2cqfq")
+shader_parameter/jolt_strength_pixels = 0.94
+shader_parameter/jumps_per_second = 7.837
+shader_parameter/jitter_scale = 1.0
+shader_parameter/seed = 123.0
+shader_parameter/soften = 0.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4c57u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lquwl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7mycd")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7mycd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_272bh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5vw27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kek77")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 9.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_82xsv"]
+shader = ExtResource("4_2cqfq")
+shader_parameter/jolt_strength_pixels = 0.642
+shader_parameter/jumps_per_second = 5.419
+shader_parameter/jitter_scale = 1.0
+shader_parameter/seed = 123.0
+shader_parameter/soften = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_getpj"]
+shader = ExtResource("4_2cqfq")
+shader_parameter/jolt_strength_pixels = 0.94
+shader_parameter/jumps_per_second = 8.07
+shader_parameter/jitter_scale = 1.0
+shader_parameter/seed = 123.0
+shader_parameter/soften = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_82xsv"]
+bg_color = Color(0.254902, 0.6, 0.6, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cegan"]
+bg_color = Color(1.05888e-06, 0.677806, 0.745004, 1)
+skew = Vector2(0.41, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_w48qg"]
+variation_embolden = 2.0
+spacing_glyph = 10
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("ham", "g1", "g2", "g3", "g4", "g5")]
+script = ExtResource("1_7mycd")
+ham = NodePath("Size/Ham")
+g1 = NodePath("G1")
+g2 = NodePath("G2")
+g3 = NodePath("G3")
+g4 = NodePath("G4")
+g5 = NodePath("G5")
+flying_image_scene = ExtResource("2_vivmo")
+
+[node name="BG" type="Sprite2D" parent="."]
+scale = Vector2(2.18, 1.41)
+texture = ExtResource("2_efxa6")
+
+[node name="G1" type="Sprite2D" parent="."]
+z_index = 1
+material = SubResource("ShaderMaterial_yaehf")
+texture = ExtResource("3_dg77c")
+
+[node name="G2" type="Sprite2D" parent="."]
+z_index = 1
+material = SubResource("ShaderMaterial_074og")
+texture = ExtResource("4_ycdy4")
+
+[node name="G5" type="Sprite2D" parent="."]
+z_index = 1
+material = SubResource("ShaderMaterial_cegan")
+texture = ExtResource("5_w48qg")
+
+[node name="Size" type="Node2D" parent="."]
+z_index = 1
+position = Vector2(0, -112)
+scale = Vector2(0.6, 0.6)
+
+[node name="Ham" type="AnimatedSprite2D" parent="Size"]
+position = Vector2(-2, -350)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_4c57u")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.543271
+
+[node name="G4" type="Sprite2D" parent="."]
+z_index = 1
+material = SubResource("ShaderMaterial_82xsv")
+texture = ExtResource("6_vivmo")
+
+[node name="G3" type="Sprite2D" parent="."]
+z_index = 1
+material = SubResource("ShaderMaterial_getpj")
+texture = ExtResource("5_vivmo")
+
+[node name="Button" type="Button" parent="."]
+z_index = 1
+texture_filter = 1
+offset_left = -240.0
+offset_top = -488.0
+offset_right = 536.0
+offset_bottom = 288.0
+scale = Vector2(0.04, 0.04)
+theme_override_styles/hover = SubResource("StyleBoxFlat_82xsv")
+toggle_mode = true
+icon = ExtResource("15_074og")
+flat = true
+
+[node name="Button2" type="Button" parent="."]
+z_index = 1
+texture_filter = 1
+offset_left = 208.0
+offset_top = -488.0
+offset_right = 984.0
+offset_bottom = 288.0
+scale = Vector2(0.04, 0.04)
+theme_override_styles/hover = SubResource("StyleBoxFlat_cegan")
+icon = ExtResource("16_cegan")
+flat = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.87, 0.87)
+
+[node name="CharlieBrown" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_w48qg")
+autoplay = true
+
+[node name="Spongebob" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_yaehf")
+volume_db = 2.811
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_vivmo")
+volume_db = -2.811
+pitch_scale = 0.8
+
+[node name="Title" type="Label" parent="."]
+offset_left = -168.0
+offset_top = -24.0
+offset_right = 164.0
+offset_bottom = 25.0
+theme_override_colors/font_color = Color(0.576471, 0.521569, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_w48qg")
+text = "HAPPY 1ST 
+ANNIVERSARY LOVER"
+horizontal_alignment = 1
+
+[connection signal="toggled" from="Button" to="." method="_on_button_toggled"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
